@@ -1,0 +1,213 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: qqq qq, qq, LIC=AK1BS-L7U0V-WKHB8-32MSD-8SH41-84YPN
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  E:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.6.0_KEIL
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+C:\Users\ÕÅ¿­Ðý\Desktop\¡¾2019¡¿ds -A-Hal\Hal--show\LCD1602\MDK-ARM\LCD1602.uvprojx
+Project File Date:  04/10/2019
+
+<h2>Output:</h2>
+Build target 'LCD1602'
+compiling lcd1602.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+..\BSP\lcd1602.c(16): warning:  #223-D: function "SysTick_Delay_Ms" declared implicitly
+                SysTick_Delay_Ms(5);    //??5MS
+..\BSP\lcd1602.c: 2 warnings, 2 errors
+compiling systick.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+..\BSP\systick.c: 1 warning, 2 errors
+compiling main.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Src/main.c: 1 warning, 2 errors
+compiling gpio.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Src/gpio.c: 1 warning, 2 errors
+compiling stm32f4xx_it.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Src/stm32f4xx_it.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_msp.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Src/stm32f4xx_hal_msp.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_tim.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_tim_ex.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_rcc.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_rcc_ex.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_flash.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_flash_ex.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_flash_ramfunc.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_gpio.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_dma_ex.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_dma.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_pwr.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_pwr_ex.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c: 1 warning, 2 errors
+compiling stm32f4xx_hal_cortex.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c: 1 warning, 2 errors
+compiling stm32f4xx_hal.c...
+../Drivers/CMSIS/Include/core_cm4.h(800): error:  #84: invalid combination of type specifiers
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(800): warning:  #64-D: declaration does not declare anything
+      __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+../Drivers/CMSIS/Include/core_cm4.h(1881): error:  #134: expected a field name
+      ITM->PORT[0U].u8 = (uint8_t)ch;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: 1 warning, 2 errors
+"LCD1602\LCD1602.axf" - 40 Error(s), 21 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.2.0.pack
+                ARM::CMSIS:CORE:3.40.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 3.40.0
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\ÕÅ¿­Ðý\Desktop\¡¾2019¡¿ds -A-Hal\Hal--show\LCD1602\MDK-ARM\RTE
+  E:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include
+  E:\Keil_v5\ARM\PACK\ARM\STM32F4xx_DFP\2.13.0
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:3.40.0
+      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+Target not created.
+</pre>
+</body>
+</html>
