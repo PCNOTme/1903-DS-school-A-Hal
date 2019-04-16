@@ -26,22 +26,79 @@ Project File Date:  04/14/2019
 
 <h2>Output:</h2>
 Build target 'ZET6'
-compiling main.c...
-..\BSP\oled.h(70): warning:  #1295-D: Deprecated declaration Picture - give arg types
-  void Picture();
-..\BSP\oled.h(71): warning:  #1295-D: Deprecated declaration IIC_Start - give arg types
-  void IIC_Start();
-..\BSP\oled.h(72): warning:  #1295-D: Deprecated declaration IIC_Stop - give arg types
-  void IIC_Stop();
-..\BSP\oled.h(77): warning:  #1295-D: Deprecated declaration IIC_Wait_Ack - give arg types
-  void IIC_Wait_Ack();
-../Src/main.c(158): warning:  #550-D: variable "t" was set but never used
-                u8 t;
-../Src/main.c: 5 warnings, 0 errors
-linking...
-Program Size: Code=12680 RO-data=360 RW-data=1260 ZI-data=1244  
-FromELF: creating hex file...
-"ZET6\ZET6.axf" - 0 Error(s), 5 Warning(s).
+compiling keypad.c...
+..\BSP\keypad.h(6): warning:  #1295-D: Deprecated declaration KEYPAD_Scan - give arg types
+  uint16_t KEYPAD_Scan();
+..\BSP\keypad.c(15): warning:  #223-D: function "RCC_APB2PeriphClockCmd" declared implicitly
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF, ENABLE);//????,??GPIOB??
+..\BSP\keypad.c(15): error:  #20: identifier "RCC_APB2Periph_GPIOF" is undefined
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF, ENABLE);//????,??GPIOB??
+..\BSP\keypad.c(19): error:  #136: struct "<unnamed>" has no field "GPIO_Mode"
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;   //???? B0-B3
+..\BSP\keypad.c(19): error:  #20: identifier "GPIO_Mode_IPU" is undefined
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;   //???? B0-B3
+..\BSP\keypad.c(21): error:  #136: struct "<unnamed>" has no field "GPIO_Pin"
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(21): error:  #20: identifier "GPIO_Pin_0" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(21): error:  #20: identifier "GPIO_Pin_1" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(21): error:  #20: identifier "GPIO_Pin_2" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(21): error:  #20: identifier "GPIO_Pin_3" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(23): error:  #136: struct "<unnamed>" has no field "GPIO_Speed"
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+..\BSP\keypad.c(23): error:  #20: identifier "GPIO_Speed_50MHz" is undefined
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+..\BSP\keypad.c(25): warning:  #223-D: function "GPIO_Init" declared implicitly
+        GPIO_Init(GPIOF, &GPIO_InitStructure);
+..\BSP\keypad.c(29): error:  #136: struct "<unnamed>" has no field "GPIO_Mode"
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;   //???? B4-B7
+..\BSP\keypad.c(29): error:  #20: identifier "GPIO_Mode_IPD" is undefined
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;   //???? B4-B7
+..\BSP\keypad.c(31): error:  #136: struct "<unnamed>" has no field "GPIO_Pin"
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+..\BSP\keypad.c(31): error:  #20: identifier "GPIO_Pin_4" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+..\BSP\keypad.c(31): error:  #20: identifier "GPIO_Pin_5" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+..\BSP\keypad.c(31): error:  #20: identifier "GPIO_Pin_6" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+..\BSP\keypad.c(31): error:  #20: identifier "GPIO_Pin_7" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+..\BSP\keypad.c(33): error:  #136: struct "<unnamed>" has no field "GPIO_Speed"
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+..\BSP\keypad.c(46): warning:  #223-D: function "RCC_APB2PeriphClockCmd" declared implicitly
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF, ENABLE);//????,??GPIOB??
+..\BSP\keypad.c(46): error:  #20: identifier "RCC_APB2Periph_GPIOF" is undefined
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF, ENABLE);//????,??GPIOB??
+..\BSP\keypad.c(48): error:  #136: struct "<unnamed>" has no field "GPIO_Mode"
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;   //???? B0-B3
+..\BSP\keypad.c(48): error:  #20: identifier "GPIO_Mode_IPD" is undefined
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;   //???? B0-B3
+..\BSP\keypad.c(49): error:  #136: struct "<unnamed>" has no field "GPIO_Pin"
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(49): error:  #20: identifier "GPIO_Pin_0" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(49): error:  #20: identifier "GPIO_Pin_1" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(49): error:  #20: identifier "GPIO_Pin_2" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(49): error:  #20: identifier "GPIO_Pin_3" is undefined
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
+..\BSP\keypad.c(50): error:  #136: struct "<unnamed>" has no field "GPIO_Speed"
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+..\BSP\keypad.c(50): error:  #20: identifier "GPIO_Speed_50MHz" is undefined
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+..\BSP\keypad.c(51): warning:  #223-D: function "GPIO_Init" declared implicitly
+        GPIO_Init(GPIOF, &GPIO_InitStructure);
+..\BSP\keypad.c(52): error:  #136: struct "<unnamed>" has no field "GPIO_Mode"
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;   //???? B4-B7
+..\BSP\keypad.c(52): error:  #20: identifier "GPIO_Mode_IPU" is undefined
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;   //???? B4-B7
+..\BSP\keypad.c: 5 warnings, 30 errors
+"ZET6\ZET6.axf" - 30 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -60,6 +117,7 @@ Package Vendor: ARM
 
    * Component: ARM::CMSIS:CORE:3.40.0
       Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+Target not created.
 </pre>
 </body>
 </html>

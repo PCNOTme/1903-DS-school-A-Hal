@@ -50,8 +50,6 @@
 #include "oled.h"
 
 
-
-
 #include "stdio.h"
 #ifdef __GNUC__
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
@@ -85,7 +83,10 @@ __IO uint32_t CaptureNumber=0;     // 输入捕获数
 __IO uint8_t  start_flag=0;
 __IO double encoder_speed=0;
 __IO uint16_t PWM_Duty;
-
+__IO uint32_t count;
+__IO int para;
+__IO double cal;
+float Weight = 0;
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -137,44 +138,48 @@ int main(void)
 	HAL_TIM_IC_Start_IT(&htim2,TIM_CHANNEL_1);
 	PID_Init(&Motor_SpeedPID,PID_Motor_KP,PID_Motor_KI,PID_Motor_KD);
 	
-	start_flag=1; 
-	printf("增量式PID算法控制电机旋转\r\n");
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-	PID_SetPoint(&Motor_SpeedPID, 200);
+	PID_SetPoint(&Motor_SpeedPID, 50);
 	Get_Maopi();
-	HAL_Delay(500);
-	printf("INIT__PASS……  \r\n");
+
+	printf("INIT__PASS……  \r\n");	
+	HAL_Delay(1000);
 	
-	
-	
+	start_flag=1; 
   while (1)
   {
-		float Weight = 0;
-		u8 t;
-		t=' ';
+		
+//		u8 t;
+//		t=' ';
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-	OLED_Clear();
-	OLED_ShowCHinese(0,0,0);//目
-	OLED_ShowCHinese(18,0,1);//标
-	OLED_ShowCHinese(36,0,2);//拉
-	OLED_ShowCHinese(54,0,3);//力
-	OLED_ShowCHinese(72,0,4);//值
-	OLED_ShowCHinese(90,0,5);//：
-	Weight = Get_Weight();
-	Weight = (float)Weight/1000.0f;
-	printf("压力传感器回传值为：	%0.3f kg\r\n\r\n",Weight);	//串口显示重量
-	HAL_Delay(1000);
-		HAL_Delay(1000);
-		HAL_Delay(1000);
-		HAL_Delay(1000);
-		HAL_Delay(1000);
+//	OLED_Clear();
+//	OLED_ShowCHinese(0,0,0);//目
+//	OLED_ShowCHinese(18,0,1);//标
+//	OLED_ShowCHinese(36,0,2);//拉
+//	OLED_ShowCHinese(54,0,3);//力
+//	OLED_ShowCHinese(72,0,4);//值
+//	OLED_ShowCHinese(90,0,5);//：
+//		HAL_Delay(1000);
+//		HAL_Delay(1000);
+//		HAL_Delay(1000);
+		
+//		HAL_Delay(1000);
+//		HAL_Delay(1000);
+//		HAL_Delay(1000);
+//		Motor_Close();
+//		printf("     STOP……  \r\n\r\n");	
+//		HAL_Delay(1000);
+//		HAL_Delay(1000);
+//		HAL_Delay(1000);
+//		Motor_Init();
+//		printf("     OPEN……  \r\n\r\n");	
+
   }
   /* USER CODE END 3 */
 
@@ -241,40 +246,27 @@ void SystemClock_Config(void)
   */
 void HAL_SYSTICK_Callback(void)
 {
-  if(start_flag) // 等待脉冲输出后才开始计时
+  if(start_flag) 					// 等待脉冲输出后才开始计时
   {
     time_count++;         // 每1ms自动增一
     if(time_count==200)    																													//200ms
     {
-      __IO uint32_t count;
-      __IO int para;
-      __IO double cal;
-      
-      /* 得到编码器计数值，数值越大说明速度越大 */
-      count=CaptureNumber; 
-      CaptureNumber=0;    // 清零，从零开始计数
-      
-      /* 计数得到增量式PID的增量数值 */
-      para=Inc_PID_Calc(&Motor_SpeedPID,count);
-      
-      /* 根据增量数值调整当前电机速度 */
-      if((para<-4)||(para>4)) // 不做 PID 调整，避免误差较小时频繁调节引起震荡。
-      {
-        PWM_Duty +=para/10;  																																		//400
-      }        
-      if(PWM_Duty>899)PWM_Duty=899;  
-      
-      
-      // 11：编码器线数(转速一圈输出脉冲数)
-      // 34：电机减数比，内部电机转动圈数与电机输出轴转动圈数比，即减速齿轮比      
-//			printf("\n差值电机速度->	%d			目标速度->	%d			电机速度->	%d		 pid计算值->  %d     新的占空比->	%d\r\n",count-Motor_SpeedPID.SetPoint,Motor_SpeedPID.SetPoint,count,para,PWM_Duty);     
-//      printf("\n设定目标速度 ->%d个脉冲     ",sptr->SetPoint);        
-//      printf("当前电机速度-> %d个脉冲\n     ",count);
-//			printf("差值电机速度-> %d个脉冲\n     ",count-sptr->SetPoint);     
-//      printf("增量式PID算法计数结果值：%d   设置新的占空比为：%d\r\n",para,PWM_Duty);
-//      
+				/* 拉力传感部分 */
+			Weight = Get_Weight();
+			Weight = (float)Weight/1000.0f;
+			
+			
+			/* 电机部分 */
+      count=CaptureNumber; 			 /* 得到编码器计数值，数值越大说明速度越大 */
+      CaptureNumber=0;    			// 清零，从零开始计数
+      para=Inc_PID_Calc(&Motor_SpeedPID,count);      /* 计数得到增量式PID的增量数值 */
+      Motor_Limt();
 			Set_Pwm(PWM_Duty);
-      time_count=0;      
+
+			
+			printf("\n压力传感为： %f   差值电机速度->	%d	目标速度->	%d	电机速度->	%d	pid计算值->  %d   新的占空比->	%d\r\n\r\n",Weight,count-Motor_SpeedPID.SetPoint,Motor_SpeedPID.SetPoint,count,para,PWM_Duty);     
+			time_count=0;  
+    
     }
   }
 }
@@ -287,8 +279,6 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 	}
 	
 }
-
-
 
 
 /* USER CODE END 4 */

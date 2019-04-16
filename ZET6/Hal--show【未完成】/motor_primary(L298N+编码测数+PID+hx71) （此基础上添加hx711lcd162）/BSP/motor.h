@@ -4,5 +4,8 @@
 
 void Motor_Init(void);
 void Set_Pwm(int pwm);
+void Motor_Limt(void);
+void Motor_Close(void);
+	
 
 #endif 

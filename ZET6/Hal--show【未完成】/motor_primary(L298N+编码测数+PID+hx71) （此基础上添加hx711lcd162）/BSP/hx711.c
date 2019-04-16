@@ -94,7 +94,7 @@ unsigned long HX711_Read(void)	//增益128
 		delay_us(1); 
 	} 
 
-	printf("WORK_ING  \r\n");
+//	printf("WORK_ING  \r\n");
 	HAL_GPIO_WritePin(HX711_PORT,HX711_I2C_SCK,GPIO_PIN_SET); 
 	val = val^0x800000; 
 	delay_us(1); 
