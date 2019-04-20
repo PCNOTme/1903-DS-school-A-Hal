@@ -580,18 +580,18 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=zet6\startup_stm32f103xe.d -ozet6\startup_stm32f103xe.o -I"F:\×ÀÃæ
-×ÊÁÏ±¾×ð\¿ÆÑÐÓë¾ºÈü\¡¾2019¡¿ds -A-Hal\ZET6\Hal--show¡¾Î´Íê³É¡¿\motor_primary(L2
-98N+±àÂë²âÊý+PID+hx71) £¨´Ë»ù´¡ÉÏÌí¼Óhx711lcd162£©\MDK-ARM\RTE" -IE:\Keil_v5\AR
-M\PACK\ARM\CMSIS\4.2.0\CMSIS\Include -IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1
+×ÊÁÏ±¾×ð\¿ÆÑÐÓë¾ºÈü\¡¾2019¡¿ds -A-Hal\ZET6\Hal--key\motor_primary(L298N+±àÂë²âÊ
+ý+PID+hx71) £¨´Ë»ù´¡ÉÏÌí¼Ókeypad£©\MDK-ARM\RTE" -IE:\Keil_v5\ARM\PACK\ARM\CMSIS
+\4.2.0\CMSIS\Include -IE:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Incl
 
 
 
 ARM Macro Assembler    Page 10 
 
 
-.0.5\Device\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERS
-ION SETA 514" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_HD SETA 1" --li
-st=startup_stm32f103xe.lst startup_stm32f103xe.s
+ude --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 514" --
+predefine="_RTE_ SETA 1" --predefine="STM32F10X_HD SETA 1" --list=startup_stm32
+f103xe.lst startup_stm32f103xe.s
 
 
 

@@ -34,3 +34,4 @@ zet6\main.o: ..\BSP\pid.h
 zet6\main.o: ..\BSP\hx711.h
 zet6\main.o: ..\BSP\oled.h
 zet6\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+zet6\main.o: ..\BSP\keypad.h

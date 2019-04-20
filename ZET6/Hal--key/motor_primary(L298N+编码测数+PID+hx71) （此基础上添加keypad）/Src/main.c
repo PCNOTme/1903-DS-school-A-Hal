@@ -48,7 +48,7 @@
 #include "pid.h"
 #include "hx711.h"
 #include "oled.h"
-
+#include "keypad.h"
 
 #include "stdio.h"
 #ifdef __GNUC__
@@ -128,13 +128,11 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	OLED_Init();			//初始化OLED  
-	OLED_Clear(); 
+//	OLED_Init();			//初始化OLED  
+//	OLED_Clear(); 
 	
-	Motor_Init();
 	HAL_TIM_Base_Start(&htim1);
 	HAL_TIM_Base_Start(&htim2);	
-
 	HAL_TIM_IC_Start_IT(&htim2,TIM_CHANNEL_1);
 	PID_Init(&Motor_SpeedPID,PID_Motor_KP,PID_Motor_KI,PID_Motor_KD);
 	
@@ -144,43 +142,62 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
 	PID_SetPoint(&Motor_SpeedPID, 50);
-	Get_Maopi();
+//	Get_Maopi();
 
 	printf("INIT__PASS……  \r\n");	
 	HAL_Delay(1000);
+
+
+////////////开机程序///////////////////
+	while(1)
+	{
+		//////////键盘部分/////////////////
+		u16 keyvalue;
+		keyvalue=KEYPAD_Scan(KEY_PASG_PORT);
+		HAL_Delay(50);
+		printf("SLLEEP……  \r\n");
+		if(keyvalue==10)break;
+		
+//		
+//		//////////拉力传感器部分/////////	
+//		Weight = Get_Weight();
+//		Weight = (float)Weight/1000.0f;
+//		printf("拉力传感器回传值为:	%0.3f kg\r\n\r\n",Weight);	
+//		printf("请开机并且输入目标拉力值！\r\n\r\n");
+
+//		HAL_Delay(100);
+	}
+	
+	 ////////启动电机转动///////////
+		Motor_Init();    
+	
+///////////////////////////////////////
+	
 	
 	start_flag=1; 
   while (1)
   {
+		u16 keyvalue;
+		keyvalue=KEYPAD_Scan(KEY_PASG_PORT);
+		if(keyvalue==11)break;
 		
-//		u8 t;
-//		t=' ';
+		
+		
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-//	OLED_Clear();
-//	OLED_ShowCHinese(0,0,0);//目
-//	OLED_ShowCHinese(18,0,1);//标
-//	OLED_ShowCHinese(36,0,2);//拉
-//	OLED_ShowCHinese(54,0,3);//力
-//	OLED_ShowCHinese(72,0,4);//值
-//	OLED_ShowCHinese(90,0,5);//：
-//		HAL_Delay(1000);
-//		HAL_Delay(1000);
-//		HAL_Delay(1000);
-		
-//		HAL_Delay(1000);
-//		HAL_Delay(1000);
-//		HAL_Delay(1000);
-//		Motor_Close();
-//		printf("     STOP……  \r\n\r\n");	
-//		HAL_Delay(1000);
-//		HAL_Delay(1000);
-//		HAL_Delay(1000);
-//		Motor_Init();
-//		printf("     OPEN……  \r\n\r\n");	
+
 
   }
+	
+////////////关机程序///////////////////
+	while(1)
+	{
+		printf("SLLEEP……  \r\n");
+		HAL_Delay(2000);
+	}
+//////////////////////////////////////
+	
   /* USER CODE END 3 */
 
 }

@@ -3,6 +3,7 @@
 "zet6\pid.o"
 "zet6\motor.o"
 "zet6\hx711.o"
+"zet6\keypad.o"
 "zet6\oled.o"
 "zet6\main.o"
 "zet6\gpio.o"

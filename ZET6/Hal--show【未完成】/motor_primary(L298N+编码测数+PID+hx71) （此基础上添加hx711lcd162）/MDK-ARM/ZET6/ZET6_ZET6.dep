@@ -117,34 +117,6 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5C9827BA)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5C9827BA)
 I (E:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5475F300)
 I (..\BSP\oledfont.h)(0x5CB3128D)
-F (..\BSP\keypad.c)(0x5CB5218E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I..\BSP-I "F:\桌面资料本尊\科研与竞赛\【2019】ds -A-Hal\ZET6\Hal--show【未完成】\motor_primary(L298N+编码测数+PID+hx71) （此基础上添加hx711lcd162）\MDK-ARM\RTE"-I E:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o zet6\keypad.o --omf_browse zet6\keypad.crf --depend zet6\keypad.d)
-I (..\BSP\keypad.h)(0x5CB5218C)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5C9827B9)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5CB30AEC)
-I (../Inc/main.h)(0x5CB30AEC)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5C9827B9)
-I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5C98270B)
-I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h)(0x5C98270B)
-I (../Drivers/CMSIS/Include/core_cm3.h)(0x5C98273F)
-I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5C98273F)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5C98273F)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5C98273F)
-I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x5C98270B)
-I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x5C9827B9)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x5C9827B9)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5C9827BA)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5C9827BA)
 F (../Src/main.c)(0x5CB519DD)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I..\BSP-I "F:\桌面资料本尊\科研与竞赛\【2019】ds -A-Hal\ZET6\Hal--show【未完成】\motor_primary(L298N+编码测数+PID+hx71) （此基础上添加hx711lcd162）\MDK-ARM\RTE"-I E:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o zet6\main.o --omf_browse zet6\main.crf --depend zet6\main.d)
 I (../Inc/main.h)(0x5CB30AEC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5C9827B9)

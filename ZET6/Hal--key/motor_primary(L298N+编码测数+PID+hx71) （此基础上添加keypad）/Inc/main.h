@@ -63,10 +63,22 @@
 #define motor_pwm1_GPIO_Port GPIOE
 #define motor_pwm2_Pin GPIO_PIN_9
 #define motor_pwm2_GPIO_Port GPIOE
-#define OLED_I2C_SCK_Pin GPIO_PIN_8
-#define OLED_I2C_SCK_GPIO_Port GPIOD
-#define OLED_I2C_DAT_Pin GPIO_PIN_9
-#define OLED_I2C_DAT_GPIO_Port GPIOD
+#define KEYPAD_R1_Pin GPIO_PIN_0
+#define KEYPAD_R1_GPIO_Port GPIOD
+#define KEYPAD_R2_Pin GPIO_PIN_1
+#define KEYPAD_R2_GPIO_Port GPIOD
+#define KEYPAD_R3_Pin GPIO_PIN_2
+#define KEYPAD_R3_GPIO_Port GPIOD
+#define KEYPAD_R4_Pin GPIO_PIN_3
+#define KEYPAD_R4_GPIO_Port GPIOD
+#define KEYPAD_L1_Pin GPIO_PIN_4
+#define KEYPAD_L1_GPIO_Port GPIOD
+#define KEYPAD_L2_Pin GPIO_PIN_5
+#define KEYPAD_L2_GPIO_Port GPIOD
+#define KEYPAD_L3_Pin GPIO_PIN_6
+#define KEYPAD_L3_GPIO_Port GPIOD
+#define KEYPAD_L4_Pin GPIO_PIN_7
+#define KEYPAD_L4_GPIO_Port GPIOD
 
 /* ########################## Assert Selection ############################## */
 /**
