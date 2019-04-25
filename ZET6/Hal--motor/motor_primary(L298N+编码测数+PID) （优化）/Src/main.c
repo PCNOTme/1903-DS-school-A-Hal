@@ -237,15 +237,8 @@ void HAL_SYSTICK_Callback(void)
       }        
       if(PWM_Duty>899)PWM_Duty=899;  
       
-      
-      // 11：编码器线数(转速一圈输出脉冲数)
-      // 34：电机减数比，内部电机转动圈数与电机输出轴转动圈数比，即减速齿轮比      
 			printf("\n差值电机速度->	%d			目标速度->	%d			电机速度->	%d		 pid计算值->  %d     新的占空比->	%d\r\n",count-Motor_SpeedPID.SetPoint,Motor_SpeedPID.SetPoint,count,para,PWM_Duty);     
-//      printf("\n设定目标速度 ->%d个脉冲     ",sptr->SetPoint);        
-//      printf("当前电机速度-> %d个脉冲\n     ",count);
-//			printf("差值电机速度-> %d个脉冲\n     ",count-sptr->SetPoint);     
-//      printf("增量式PID算法计数结果值：%d   设置新的占空比为：%d\r\n",para,PWM_Duty);
-//      
+
 			Set_Pwm(PWM_Duty);
       time_count=0;      
     }

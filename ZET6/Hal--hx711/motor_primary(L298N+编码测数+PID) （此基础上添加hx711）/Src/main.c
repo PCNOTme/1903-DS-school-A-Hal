@@ -130,7 +130,7 @@ int main(void)
 	HAL_TIM_IC_Start_IT(&htim2,TIM_CHANNEL_1);
 	PID_Init(&Motor_SpeedPID,PID_Motor_KP,PID_Motor_KI,PID_Motor_KD);
 	
-	start_flag=1; 
+//	start_flag=1; 
 	printf("增量式PID算法控制电机旋转\r\n");
 
   /* USER CODE END 2 */
