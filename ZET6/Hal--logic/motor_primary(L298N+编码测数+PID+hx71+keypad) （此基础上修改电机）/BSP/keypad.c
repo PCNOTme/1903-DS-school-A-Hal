@@ -31,13 +31,18 @@ void Key_Logic()
 		if(key_in_flag==1)
 		{
 			printf("													开始拟的输入					\r\n\r\n");		
-			HAL_Delay(2000);					
-			i++;
-			key_str[i]=keyvalue2;
+			HAL_Delay(500);					
+			
+			if(keyvalue2>=0&&keyvalue2<=9)
+			{
+				key_str[i]=keyvalue2;
+				i++;
+			}
+			
 				if(key_out_flag==1)
 				{
 					key_str[4]=key_str[0]*1000+key_str[1]*100+key_str[2]*10+key_str[3];   //仅限输入4位数字，单位为g
-					key_str[4]=key_last/1000;	 //单位  Kg
+//					key_str[4]=key_last/1000;	 //单位  Kg
 					i=0;
 					printf("设定了的目标值是 ………………………………………………………………    %d	kg\r\n\r\n",key_str[4]);
 
@@ -53,7 +58,7 @@ void Key_Logic()
 		{
 			keyvalue2=KEYPAD_Scan(KEY_PASG_PORT);
 			key_open=0;
-			printf("												wosaoninnnnnnnnnnnnnnnn			\r\n\r\n");		
+//			printf("												wosaoninnnnnnnnnnnnnnnn			\r\n\r\n");		
 		}	
 			
 }

@@ -1,7 +1,6 @@
 
 /**
-  ******************************************************************************
-  * @file           : main.c
+  
   * @brief          : Main program body
   ******************************************************************************
   ** This notice applies to any and all portions of this file
@@ -80,6 +79,7 @@ void SystemClock_Config(void);
 /* Private function prototypes -----------------------------------------------*/
 
 __IO uint16_t time_count=0;        // 时间计数，每1ms增加一(与滴定时器频率有关)
+__IO uint16_t time_count2=0;
 __IO uint16_t time_key_count=0;
 __IO uint32_t CaptureNumber=0;     // 输入捕获数
 __IO uint8_t  start_encoder_flag=0;
@@ -164,7 +164,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	Motor_Init();   
 	PID_SetPoint(&Motor_PowerPID, power_point);
-	PID_SetPoint(&Motor_SpeedPID, speed_point);
+//	PID_SetPoint(&Motor_SpeedPID, speed_point);
 	Get_Maopi();
 
 	printf("INIT__PASS……  \r\n");	
@@ -208,16 +208,17 @@ int main(void)
 	
 ///////////////////////////////////////
 	
-	start_flag=1;          			//开启滴答定时器的定时
+//	start_flag=1;          			//开启滴答定时器的定时
 	start_encoder_flag=1;     //开启PID的调节标志//
 	
   while (1)
   {
 		///包含按键扫描和按键输入////
-//		Key_Logic();
-//	
-//		printf("								当前keyvalue2  de  值  %d	\r\n",keyvalue2);
-//		HAL_Delay(50);
+		Key_Logic();
+	
+		printf("								当前keyvalue2  de  值  %d	\r\n",keyvalue2);
+		HAL_Delay(50);
+		
 		////*关机识别*///
 		if(close_flag==1)break;
 
@@ -239,6 +240,7 @@ int main(void)
 //////////////////////////////////////
 	
   /* USER CODE END 3 */
+
 
 }
 
@@ -314,28 +316,38 @@ void HAL_SYSTICK_Callback(void)
 		
 			if(start_encoder_flag==1)
 			{
-				
-				/* 【外环】电机部分 */
+//				/* 【外环】速度部分*/
 				count=Weight; 			 /* 得到编码器计数值，数值越大说明速度越大 */
 				error0=count-Motor_PowerPID.SetPoint;
-				para1=Inc_PID_Calc(&Motor_PowerPID,count);      /* 计数得到增量式PID的增量数值 */
-				printf("\n目标：%.2f 压力：%.2f	差值%.2f	pid计算%d 占空比->%d\r\n",Motor_PowerPID.SetPoint,Weight,count-Motor_PowerPID.SetPoint,para1,PWM_Duty);     
-				Motor_Dirc();
-				Motor_Limt();
+				para1=Inc_PID_Calc2(&Motor_PowerPID,count);      /* 计数得到位置式PID的增量数值 */
+//				printf("\n目标：%.2f 压力：%.2f	差值%.2f	pid计算%d 占空比->%d\r\n",Motor_PowerPID.SetPoint,Weight,count-Motor_PowerPID.SetPoint,para1,PWM_Duty); 
+				printf("\n目标：	%.2f  压力：%.2f	  差值%.2f	para1计算 %d \r\n",Motor_PowerPID.SetPoint,Weight,count-Motor_PowerPID.SetPoint,para1);    				
+//				Motor_Dirc();
+//				Motor_Limt();
+				if(para1<=0)para1=-para1;
+				if(para1>200)para1=200;
+			  PID_SetPoint(&Motor_SpeedPID,para1);	
 				
-				/*【内环】电机部分 */
-				count=(short)TIM2->CNT;  
-				para2=Inc_PID_Calc(&Motor_SpeedPID,count);  
-				PWM_Duty +=para2;  																																		//400      
-				printf("																																				目标：%d  增量：%d	差值 ：%d	 pid计算：%d 占空比：%d\r\n\r\n",(int)Motor_SpeedPID.SetPoint,(int)count,(int)(count-Motor_SpeedPID.SetPoint),para1,PWM_Duty);   
-				Motor_Dirc();
-				
-				Set_Pwm(PWM_Duty);		
+				/*【内环】电流部分 */
+				count=(short)TIM2->CNT; 
+				if(count<=0)count=-count;
+				para2=Inc_PID_Calc1(&Motor_SpeedPID,count);                  /* 计数得到增量式PID的增量数值 */
+				PWM_Duty +=para2;
+			  if(PWM_Duty<0)PWM_Duty=-PWM_Duty;		
+				if(PWM_Duty<2000)PWM_Duty=2000;
+		    if(PWM_Duty>10000)PWM_Duty=10000;		
+        Motor_Dirc();
+				Set_Pwm(PWM_Duty);					
+				printf("																																				目标：%d  计数：%d	差值 ：%d	 pid计算：%d 占空比：%d\r\n\r\n",para1,(int)count,(int)(para1-count),para2,PWM_Duty);   
+	
 			}
 			
-				TIM2 -> CNT=0;
-			time_count=0;  
+			TIM2 -> CNT=0;
+			time_count=0;
+	
+			
     }
+//		if((time_count%10)==0){	printf("\n目标：	%.2f  压力：%.2f	  差值%.2f	para1计算 %d \r\n",Motor_PowerPID.SetPoint,Weight,count-Motor_PowerPID.SetPoint,para1);   }
   }
 }
 
@@ -374,7 +386,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //			printf("READDDDDDDDDDDDDD……  \r\n");
 			if(keyvalue1==10)open_flag=1;
 			if(keyvalue2==11)close_flag=1;
-			if(keyvalue2==15)key_in_flag=1;
+			if(keyvalue2==12)key_in_flag=1;
 			if(keyvalue2==13)key_out_flag=1;
 			if(keyvalue2==14)key_clear_flag=1;
 			key_open=1;
