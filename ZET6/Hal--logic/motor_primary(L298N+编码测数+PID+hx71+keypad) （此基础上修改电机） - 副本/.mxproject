@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=F:/桌面资料本尊/科研与竞赛/【2019】ds -A-Hal/ZET6/Hal--logic/motor_primary(L298N+编码测数+PID+hx71+keypad) （此基础上修改电机）/Inc
+HeaderPath=F:/桌面资料本尊/科研与竞赛/【2019】ds -A-Hal/ZET6/Hal--logic/motor_primary(L298N+编码测数+PID+hx71+keypad) （此基础上修改电机） - 副本/Inc
 HeaderFiles=stm32f1xx_it.h;stm32f1xx_hal_conf.h;main.h;gpio.h;tim.h;usart.h;
-SourcePath=F:/桌面资料本尊/科研与竞赛/【2019】ds -A-Hal/ZET6/Hal--logic/motor_primary(L298N+编码测数+PID+hx71+keypad) （此基础上修改电机）/Src
+SourcePath=F:/桌面资料本尊/科研与竞赛/【2019】ds -A-Hal/ZET6/Hal--logic/motor_primary(L298N+编码测数+PID+hx71+keypad) （此基础上修改电机） - 副本/Src
 SourceFiles=stm32f1xx_it.c;stm32f1xx_hal_msp.c;main.c;gpio.c;tim.c;usart.c;
 
 [PreviousLibFiles]

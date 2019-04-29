@@ -24,9 +24,6 @@
 #include "stdlib.h"
 #include "oledfont.h"  	 
 
-#define OLED_PORT  GPIOD
-#define OLED_I2C_SCK  GPIO_PIN_8
-#define OLED_I2C_DAT GPIO_PIN_9
 
 //OLED的显存
 //存放格式如下.

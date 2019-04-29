@@ -13,21 +13,25 @@
 //              ----------------------------------------------------------------
 //              GND   电源地
 //              VCC   接5V或3.3v电源
-//              SCL   接PD6（SCL）
-//              SDA   接PD7（SDA）            
+//              SCL   接PA5（SCL）
+//              SDA   接PA7（SDA）            
 //              ----------------------------------------------------------------
 //Copyright(C) 中景园电子2014/3/16
 //All rights reserved
 //////////////////////////////////////////////////////////////////////////////////
 #ifndef __OLED_H
 #define __OLED_H			  	 
-
 #include "stm32f1xx_hal.h"
 #include "stdlib.h"	    	
-#define u8   uint8_t
-#define u32  uint32_t
+
+#define OLED_I2C_Port GPIOB
+#define OLED_I2C_SCK  GPIO_PIN_10
+#define OLED_I2C_DAT  GPIO_PIN_11
 
 
+#define u8 uint8_t
+#define u16 uint16_t
+#define u32 uint32_t
 #define OLED_MODE 0
 #define SIZE 8
 #define XLevelL		0x00
@@ -39,12 +43,11 @@
 #define Y_WIDTH 	64	    						  
 //-----------------OLED IIC端口定义----------------  					   
 
-#define OLED_SCLK_Clr() HAL_GPIO_WritePin(OLED_PORT,OLED_I2C_SCK,GPIO_PIN_RESET)//SDA IIC接口的时钟信号
-#define OLED_SCLK_Set() HAL_GPIO_WritePin(OLED_PORT,OLED_I2C_SCK,GPIO_PIN_SET)
+#define OLED_SCLK_Clr() HAL_GPIO_WritePin(OLED_I2C_Port,OLED_I2C_SCK,GPIO_PIN_RESET)
+#define OLED_SCLK_Set() HAL_GPIO_WritePin(OLED_I2C_Port,OLED_I2C_SCK,GPIO_PIN_SET)
 
-#define OLED_SDIN_Clr() HAL_GPIO_WritePin(OLED_PORT,OLED_I2C_DAT,GPIO_PIN_RESET)//SCL IIC接口的数据信号
-#define OLED_SDIN_Set() HAL_GPIO_WritePin(OLED_PORT,OLED_I2C_DAT,GPIO_PIN_SET)
-
+#define OLED_SDIN_Clr() HAL_GPIO_WritePin(OLED_I2C_Port,OLED_I2C_DAT,GPIO_PIN_RESET)
+#define OLED_SDIN_Set() HAL_GPIO_WritePin(OLED_I2C_Port,OLED_I2C_DAT,GPIO_PIN_SET)
  		     
 #define OLED_CMD  0	//写命令
 #define OLED_DATA 1	//写数据

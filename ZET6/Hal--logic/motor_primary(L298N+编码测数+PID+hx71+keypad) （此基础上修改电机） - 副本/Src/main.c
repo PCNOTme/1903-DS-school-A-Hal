@@ -1,6 +1,7 @@
 
 /**
-  
+  ******************************************************************************
+  * @file           : main.c
   * @brief          : Main program body
   ******************************************************************************
   ** This notice applies to any and all portions of this file
@@ -214,9 +215,9 @@ int main(void)
   while (1)
   {
 		///包含按键扫描和按键输入////
-		Key_Logic();
-	
-		printf("								当前keyvalue2  de  值  %d	\r\n",keyvalue2);
+//		Key_Logic();
+//	
+//		printf("								当前keyvalue2  de  值  %d	\r\n",keyvalue2);
 		HAL_Delay(50);
 		
 		////*关机识别*///
@@ -240,7 +241,6 @@ int main(void)
 //////////////////////////////////////
 	
   /* USER CODE END 3 */
-
 
 }
 

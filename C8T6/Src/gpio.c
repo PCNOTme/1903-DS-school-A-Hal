@@ -68,7 +68,7 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, KEYPAD_R1_Pin|KEYPAD_R2_Pin|KEYPAD_R3_Pin|OLED_I2C_DSCK_Pin 
+  HAL_GPIO_WritePin(GPIOB, KEYPAD_R1_Pin|KEYPAD_R2_Pin|KEYPAD_R3_Pin|OLED_I2C_SCK_Pin 
                           |MOTOR_IN1_Pin|MOTOR_IN2_Pin|KEYPAD_R4_Pin|HX711_I2C_SCK_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PBPin PBPin PBPin PBPin */
@@ -79,7 +79,7 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PBPin PBPin */
-  GPIO_InitStruct.Pin = OLED_I2C_DSCK_Pin|HX711_I2C_SCK_Pin;
+  GPIO_InitStruct.Pin = OLED_I2C_SCK_Pin|HX711_I2C_SCK_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
