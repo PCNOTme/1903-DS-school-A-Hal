@@ -97,6 +97,7 @@ __IO int key_clear_flag=0;
 __IO int open_flag=0;
 __IO int close_flag=0;
 int success_sub=0;
+int success_count=0;
 int success=0;
 int Weight = 0;        //压力传感相关参数
 int Weight_itr = 0; 
@@ -258,6 +259,7 @@ int main(void)
 //		start_encoder_flag=1;    				 //开启PID的调节标志	
 		Get_Maopi();
 		TIM2 -> CNT=0;
+		success_count=0;
 		time_total=0;
 	
   while (1)
@@ -267,7 +269,6 @@ int main(void)
 			OLED_Show();
 			printf("\n目标：	%d  压力：%d	  差值%d	para1计算 %d \r\n",Motor_PowerPID.SetPoint,Weight_itr,Motor_PowerPID.SetPoint-Weight_itr,para1);    				
 			printf("\n										目标：%d  计数：%d	差值 ：%d	 pid计算：%d 占空比：%d\n\r\n",para1,(int)count,(int)(para1-count),para2,PWM_Duty);   
-
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -339,9 +340,10 @@ void SystemClock_Config(void)
   */
 void HAL_SYSTICK_Callback(void)
 {	
-	success_sub=key_str[4]-Weight_itr;
-	if((success_sub<=10)&&(success_sub>=-10))success=1;
-	else time_total++;						//用于OLED的时间显示
+	if(TIM2->CNT==0)success_count++;
+	if(success_count>=20){time_total=0;success=1;}
+	else time_total++;				//用于OLED的时间显示
+					
 	
   if(start_flag) 					// 等待一切初始化完成后才开始计时
   {
@@ -360,7 +362,7 @@ void HAL_SYSTICK_Callback(void)
 							error0=Weight_itr-Motor_PowerPID.SetPoint;
 							para1=Inc_PID_Calc2(&Motor_PowerPID,Weight_itr);      /* 计数得到位置式PID的增量数值 */		
 							if(para1<=0)para1=-para1;
-			//				if(para1>200)para1=200;
+							if(para1>120)para1=120;
 							PID_SetPoint(&Motor_SpeedPID,para1);	
 							
 							
@@ -370,8 +372,7 @@ void HAL_SYSTICK_Callback(void)
 							if(count<=0)count=-count;   	 //速度环不需要正负；
 							para2=Inc_PID_Calc1(&Motor_SpeedPID,count);                  /* 计数得到增量式PID的增量数值 */
 							PWM_Duty +=para2;
-							
-							if(PWM_Duty<0)PWM_Duty=-PWM_Duty;		
+								
 							if(PWM_Duty<2000)PWM_Duty=2000;   	//限幅
 							if(PWM_Duty>10000)PWM_Duty=10000;		
 							

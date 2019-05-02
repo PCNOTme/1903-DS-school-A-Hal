@@ -3,12 +3,12 @@
 #include "stm32f1xx_hal.h"
 
 //ËÙ¶È»·
-#define PID_Motor_KP1  1     //
+#define PID_Motor_KP1  0.5     //
 #define PID_Motor_KI1 0  //0.7:2.884  0.6:2.472//3.8
 #define PID_Motor_KD1 0
 
-#define PID_Motor_KP2  1.2   // 
-#define PID_Motor_KI2 0  //
+#define PID_Motor_KP2  200   // 1.2/15.1-15.6		2/14.2		5/13.7-15.4-14.6-15.1			20/*		15/*		10/*	7/*		5.5/*		
+#define PID_Motor_KI2 0  //																4.4/14.1-14.8
 #define PID_Motor_KD2 0
 
 typedef volatile struct __PIDStruct
