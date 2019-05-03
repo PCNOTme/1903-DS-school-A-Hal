@@ -340,6 +340,7 @@ void SystemClock_Config(void)
   */
 void HAL_SYSTICK_Callback(void)
 {	
+	
 	if(TIM2->CNT==0)success_count++;
 	if(success_count>=20){time_total=0;success=1;}
 	else time_total++;				//用于OLED的时间显示
