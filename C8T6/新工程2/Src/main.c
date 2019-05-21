@@ -97,8 +97,9 @@ __IO int key_clear_flag=0;
 __IO int open_flag=0;
 __IO int close_flag=0;
 int success_sub=0;
-int success_count=0;
+unsigned int success_count=0;
 int success=0;
+int success_clear=0;
 int Weight = 0;        //压力传感相关参数
 int Weight_itr = 0; 
 int key_str[5];
@@ -249,7 +250,8 @@ int main(void)
 			{
 				Key_Logic();					//包含按键扫描和按键输入;【优先调节拉力计得机械零位，后输入目标值】
 			}			
-		}			
+		}		
+		 Weight = -Get_Weight();		
 		 OLED_Show();
 	}
 	
@@ -340,20 +342,45 @@ void SystemClock_Config(void)
   */
 void HAL_SYSTICK_Callback(void)
 {	
+
+		/* 拉力传感部分 */
+		Weight_itr=Weight;
+//			printf("\n拉力值为:	…………………………		%d\r\n",Weight_itr);
 	
-	if(TIM2->CNT==0)success_count++;
-	if(success_count>=20){time_total=0;success=1;}
-	else time_total++;				//用于OLED的时间显示
+//	if(TIM2->CNT==0)success_count++;
+//	if(success_count>=20){time_total=0;success=1;}
+//	else time_total++;				//用于OLED的时间显示
+		
+	if(success_count>=20)
+	{
+	 success=1;success_clear=1;LED_ON;
+		}
+		else if(success_clear==1)
+	{
+			time_count=0;
+			success_clear=0;			
+		}
+			else {success=0;LED_OFF;}
+		
+	if((error0>5)||(error0<-5))
+	{
+		success_count--;
+	}		
+			
+	if(success==0)
+	{
+		time_total++;
+		if((error0<=5)||(error0>=-5))
+		{
+			success_count++;
+		}
+	}
 					
 	
   if(start_flag) 					// 等待一切初始化完成后才开始计时
   {
 		time_count++;
-		
-				/* 拉力传感部分 */
-			Weight_itr=Weight;
-//			printf("\n拉力值为:	…………………………		%d\r\n",Weight_itr);
-		 
+				 
 			if(time_count==6)
 			{
 							if(start_encoder_flag==1)

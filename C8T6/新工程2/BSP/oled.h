@@ -50,6 +50,9 @@
 #define OLED_SDIN_Clr() HAL_GPIO_WritePin(OLED_PORT,OLED_I2C_DAT,GPIO_PIN_RESET);
 #define OLED_SDIN_Set() HAL_GPIO_WritePin(OLED_PORT,OLED_I2C_DAT,GPIO_PIN_SET);
 
+#define LED_ON 	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_RESET);
+#define LED_OFF	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
+
  		     
 #define OLED_CMD  0	//Ð´ÃüÁî
 #define OLED_DATA 1	//Ð´Êý¾Ý
