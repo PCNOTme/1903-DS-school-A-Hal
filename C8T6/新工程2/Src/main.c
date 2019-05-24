@@ -350,23 +350,7 @@ void HAL_SYSTICK_Callback(void)
 //	if(TIM2->CNT==0)success_count++;
 //	if(success_count>=20){time_total=0;success=1;}
 //	else time_total++;				//用于OLED的时间显示
-		
-	if(success_count>=20)
-	{
-	 success=1;success_clear=1;LED_ON;
-		}
-		else if(success_clear==1)
-	{
-			time_count=0;
-			success_clear=0;			
-		}
-			else {success=0;LED_OFF;}
-		
-	if((error0>5)||(error0<-5))
-	{
-		success_count--;
-	}		
-			
+//			
 	if(success==0)
 	{
 		time_total++;
@@ -374,7 +358,30 @@ void HAL_SYSTICK_Callback(void)
 		{
 			success_count++;
 		}
+		if(success_count>=20)
+		{
+			success=1;
+			LED_ON;
+		}
+		else {success=0;LED_OFF;}	
 	}
+	
+//	if(success==1)
+//	{
+//		if((error0>5)||(error0<-5))
+//		{
+//			success_count--;
+//		}				
+//		if(success_count<=17)
+//		{
+//			success=0;
+//			time_total=0;			
+//			LED_OFF;
+//		}
+//	}
+	
+	
+		
 					
 	
   if(start_flag) 					// 等待一切初始化完成后才开始计时
@@ -390,7 +397,7 @@ void HAL_SYSTICK_Callback(void)
 							error0=Weight_itr-Motor_PowerPID.SetPoint;
 							para1=Inc_PID_Calc2(&Motor_PowerPID,Weight_itr);      /* 计数得到位置式PID的增量数值 */		
 							if(para1<=0)para1=-para1;
-							if(para1>120)para1=120;
+							if(para1>375)para1=375;
 							PID_SetPoint(&Motor_SpeedPID,para1);	
 							
 							

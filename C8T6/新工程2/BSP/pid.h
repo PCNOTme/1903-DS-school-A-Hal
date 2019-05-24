@@ -3,7 +3,7 @@
 #include "stm32f1xx_hal.h"
 
 //ËÙ¶È»·
-#define PID_Motor_KP1  0.5     //
+#define PID_Motor_KP1  1     //
 #define PID_Motor_KI1 0  //0.7:2.884  0.6:2.472//3.8
 #define PID_Motor_KD1 0
 
