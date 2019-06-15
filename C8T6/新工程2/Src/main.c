@@ -209,7 +209,8 @@ int main(void)
 	
 	/////////////////////////////////////
 	
-	
+	LED_OFF;
+	Get_Maopi();
 	//////////【弹力装置初始化程序】///////////////////
 	while(1)
 	{	
@@ -253,15 +254,16 @@ int main(void)
 		}		
 		 Weight = -Get_Weight();		
 		 OLED_Show();
+
 	}
 	
 			//////////【开机运行de程序】////////////
 		printf("														开机													\r\n");
 		start_flag=1;          					//开启滴答定时器的定时
 //		start_encoder_flag=1;    				 //开启PID的调节标志	
+
 		Get_Maopi();
 		TIM2 -> CNT=0;
-		success_count=0;
 		time_total=0;
 	
   while (1)
@@ -351,38 +353,7 @@ void HAL_SYSTICK_Callback(void)
 //	if(success_count>=20){time_total=0;success=1;}
 //	else time_total++;				//用于OLED的时间显示
 //			
-	if(success==0)
-	{
-		time_total++;
-		if((error0<=5)||(error0>=-5))
-		{
-			success_count++;
-		}
-		if(success_count>=20)
-		{
-			success=1;
-			LED_ON;
-		}
-		else {success=0;LED_OFF;}	
-	}
-	
-//	if(success==1)
-//	{
-//		if((error0>5)||(error0<-5))
-//		{
-//			success_count--;
-//		}				
-//		if(success_count<=17)
-//		{
-//			success=0;
-//			time_total=0;			
-//			LED_OFF;
-//		}
-//	}
-	
-	
-		
-					
+				
 	
   if(start_flag) 					// 等待一切初始化完成后才开始计时
   {
@@ -408,7 +379,7 @@ void HAL_SYSTICK_Callback(void)
 							para2=Inc_PID_Calc1(&Motor_SpeedPID,count);                  /* 计数得到增量式PID的增量数值 */
 							PWM_Duty +=para2;
 								
-							if(PWM_Duty<2000)PWM_Duty=2000;   	//限幅
+							if(PWM_Duty<1000)PWM_Duty=1000;   	//限幅
 							if(PWM_Duty>10000)PWM_Duty=10000;		
 							
 							Motor_Dirc();     					//判别方向
@@ -422,6 +393,37 @@ void HAL_SYSTICK_Callback(void)
 				time_count=0;
 			}
 			
+			
+			
+					if(success==0)
+					{
+						time_total++;
+						if((error0<=3)&&(error0>=-3))
+						{
+							success_count++;
+							if(success_count>=50)
+							{
+								success=1;
+								LED_ON;
+							}
+						}
+					}
+					
+					
+					if(success==1)
+					{
+						if((error0>3)||(error0<-3))
+						{
+							success_count--;
+							
+								if(success_count<=0)
+							{
+								success=0;
+								time_total=0;			
+								LED_OFF;
+							}				
+						}
+					}
 	}
 }
 
